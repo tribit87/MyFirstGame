@@ -50,8 +50,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Bomb.cs" />
+     <Compile Include="Assets\Script\BulletGo.cs" />
+     <Compile Include="Assets\Script\CameraLook.cs" />
      <Compile Include="Assets\Script\EnemySpawn.cs" />
+     <Compile Include="Assets\Script\HealthConroller.cs" />
      <Compile Include="Assets\Script\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\Shooting.cs" />
+     <Compile Include="Assets\Script\Turrel.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/GameDev/Repos/Unity/MyFirstGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

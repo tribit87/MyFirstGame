@@ -6,23 +6,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
-    private Vector3 _direction;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private CharacterController controller;
 
-    // Update is called once per frame
     void Update()
     {
-        _direction.x = Input.GetAxis("Horizontal");
-        _direction.z = Input.GetAxis("Vertical");
-    }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-    void FixedUpdate()
-    {
-        transform.position = transform.position + _direction * Time.fixedDeltaTime * Speed;
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * Speed * Time.deltaTime);
     }
 }
