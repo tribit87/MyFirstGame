@@ -6,14 +6,42 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
-    [SerializeField] private CharacterController controller;
+    private Rigidbody rb;
+    public bool IsOnGround = false;
+    [SerializeField] private float force;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            IsOnGround = true;
+        }
+    }
+    
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            IsOnGround = false;
+        }
+    }
 
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        
+        rb.AddForce(((transform.right * x) + (transform.forward * z)) * Speed);
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * Speed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
+        {
+            rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        }
+
     }
 }

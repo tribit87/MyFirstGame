@@ -6,8 +6,13 @@ using UnityEngine.UIElements;
 
 public class Turrel : MonoBehaviour
 {
+    [SerializeField] private GameObject Bullet;
+    [SerializeField] private float force;
+    [SerializeField] private Transform FirePoint;
     private bool isNear;
     private Transform target;
+    private float coolDown = 1f;
+    private float currentTime = 0;
     
     private void OnTriggerStay(Collider other)
     {
@@ -28,9 +33,18 @@ public class Turrel : MonoBehaviour
 
     private void Update()
     {
-        if (isNear)
+        currentTime += Time.deltaTime;
+        if (isNear && currentTime >= coolDown)
         {
             transform.LookAt(target);
+            Shoot();
         }
+    }
+    
+    void Shoot ()
+    {
+        GameObject bullet = Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.AddForce(FirePoint.forward * force, ForceMode.Impulse);
     }
 }
