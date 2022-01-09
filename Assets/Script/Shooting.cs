@@ -26,5 +26,5 @@ public class Shooting : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(FirePoint.forward * Speed, ForceMode.Impulse);
     }
-    
+
 }

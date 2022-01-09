@@ -52,12 +52,16 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Bomb.cs" />
      <Compile Include="Assets\Script\BulletDamage.cs" />
-     <Compile Include="Assets\Script\BulletGo.cs" />
+     <Compile Include="Assets\Script\BulletDestroy.cs" />
      <Compile Include="Assets\Script\CameraLook.cs" />
+     <Compile Include="Assets\Script\DoorController.cs" />
+     <Compile Include="Assets\Script\EnemyHC.cs" />
      <Compile Include="Assets\Script\EnemySpawn.cs" />
      <Compile Include="Assets\Script\Healing.cs" />
      <Compile Include="Assets\Script\HealthConroller.cs" />
+     <Compile Include="Assets\Script\KeyController.cs" />
      <Compile Include="Assets\Script\Patrol.cs" />
+     <Compile Include="Assets\Script\PlayerController.cs" />
      <Compile Include="Assets\Script\PlayerMovement.cs" />
      <Compile Include="Assets\Script\Shooting.cs" />
      <Compile Include="Assets\Script\Turrel.cs" />
