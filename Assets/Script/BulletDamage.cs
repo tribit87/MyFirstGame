@@ -12,8 +12,19 @@ public class BulletDamage : MonoBehaviour
         {
             var hc = other.GetComponent<HealthConroller>();
             hc._currentHealth -= Damage;
-            Debug.Log(hc._currentHealth);
-            Destroy(gameObject);
+            Debug.Log("Player HP: " + hc._currentHealth);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        GameObject other = collision.gameObject;
+        if (other.gameObject.tag == "Enemy")
+        {
+            var hc = other.GetComponent<EnemyHC>();
+            hc._currentEnemyHealth -= Damage;
+            Debug.Log("Enemy HP: " + hc._currentEnemyHealth);
+        } 
+    }
+    
 }

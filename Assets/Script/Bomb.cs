@@ -13,7 +13,7 @@ public class Bomb : MonoBehaviour
         {
             var hc = other.GetComponent<HealthConroller>();
             hc._currentHealth -= Damage;
-            Debug.Log(hc._currentHealth);
+            Debug.Log("Player HP: " + hc._currentHealth);
             Destroy(gameObject);
         }
     }

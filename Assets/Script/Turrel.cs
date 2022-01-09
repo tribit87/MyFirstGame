@@ -46,5 +46,6 @@ public class Turrel : MonoBehaviour
         GameObject bullet = Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(FirePoint.forward * force, ForceMode.Impulse);
+        currentTime = 0;
     }
 }
