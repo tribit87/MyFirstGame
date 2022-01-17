@@ -41,15 +41,6 @@ public class PlayerController : MonoBehaviour
                 return false;
         }
     }
-
-    private void Update()
-    {
-        while(cupsInTheSink > 0)
-        {
-            Debug.Log ("I've washed a cup!");
-            cupsInTheSink--;
-        }
-    }
 }
 
 

@@ -10,9 +10,9 @@ public class Healing : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var hc = other.GetComponent<HealthConroller>();
-            hc._currentHealth += healthPoints;
-            Debug.Log(hc._currentHealth);
+            var hc = other.GetComponent<HealthController>();
+            hc.CurrentHealthNew += healthPoints;
+            Debug.Log(hc.CurrentHealthNew);
             Destroy(gameObject);
         }
     }

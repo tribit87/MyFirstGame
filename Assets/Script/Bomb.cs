@@ -11,9 +11,9 @@ public class Bomb : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var hc = other.GetComponent<HealthConroller>();
-            hc._currentHealth -= Damage;
-            Debug.Log("Player HP: " + hc._currentHealth);
+            var hc = other.GetComponent<HealthController>();
+            hc.CurrentHealthNew -= Damage;
+            Debug.Log("Player HP: " + hc.CurrentHealthNew);
             Destroy(gameObject);
         }
     }
