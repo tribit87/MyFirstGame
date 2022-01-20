@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyController : MonoBehaviour
 {
     [SerializeField] private DoorType Door;
+    [SerializeField] private AudioSource KeySound;
         
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +13,7 @@ public class KeyController : MonoBehaviour
         {
             var pc = other.GetComponent<PlayerController>();
             pc.GetKey(Door);
+            KeySound.Play();
             Destroy(gameObject);
         }
     }

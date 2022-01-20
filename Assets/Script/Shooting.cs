@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform FirePoint;
     [SerializeField] private GameObject Bullet;
     [SerializeField] private float Speed;
+    [SerializeField] private AudioSource ShootingSound;
 
     private GameObject _bulletGO;
 
@@ -25,6 +26,7 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(FirePoint.forward * Speed, ForceMode.Impulse);
+        ShootingSound.Play();
     }
 
 }
