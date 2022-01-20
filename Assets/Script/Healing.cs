@@ -5,6 +5,7 @@ using UnityEngine;
 public class Healing : MonoBehaviour
 {
     [SerializeField] private float healthPoints;
+    [SerializeField] private AudioSource HealingSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,7 @@ public class Healing : MonoBehaviour
             var hc = other.GetComponent<HealthController>();
             hc.CurrentHealthNew += healthPoints;
             Debug.Log(hc.CurrentHealthNew);
+            HealingSound.Play();
             Destroy(gameObject);
         }
     }

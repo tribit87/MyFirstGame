@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     [SerializeField] private DoorType Door;
+    [SerializeField] private AudioSource DoorSound;
         
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,7 @@ public class DoorController : MonoBehaviour
             var pc = other.GetComponent<PlayerController>();
             if (pc.HasKey(Door))
             {
+                DoorSound.Play();
                 //Open();
                 Destroy(gameObject);
             }

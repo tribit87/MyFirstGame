@@ -6,6 +6,8 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private float Damage;
+    [SerializeField] private ParticleSystem ParticleSystem;
+    [SerializeField] private AudioSource ExplosionSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +16,8 @@ public class Bomb : MonoBehaviour
             var hc = other.GetComponent<HealthController>();
             hc.CurrentHealthNew -= Damage;
             Debug.Log("Player HP: " + hc.CurrentHealthNew);
+            ParticleSystem.Play();
+            ExplosionSound.Play();
             Destroy(gameObject);
         }
     }

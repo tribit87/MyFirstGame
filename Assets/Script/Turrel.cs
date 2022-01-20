@@ -9,6 +9,7 @@ public class Turrel : MonoBehaviour
     [SerializeField] private GameObject Bullet;
     [SerializeField] private float force;
     [SerializeField] private Transform FirePoint;
+    [SerializeField] private AudioSource EnemyshotingSound;
     private bool isNear;
     private Transform target;
     private float coolDown = 1f;
@@ -47,5 +48,6 @@ public class Turrel : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(FirePoint.forward * force, ForceMode.Impulse);
         currentTime = 0;
+        EnemyshotingSound.Play();
     }
 }
